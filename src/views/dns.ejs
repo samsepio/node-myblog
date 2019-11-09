@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+        <head>
+                <meta charset="utf-8">
+                <meta name="author"content="walter">
+                <title>WalterBlogs</title>
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        </head>
+        <body>
+                <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand"href="/">Inicio</a>
+                        <a class="navbar-brand"href="/signin">Inicia Secion</a>
+                        <a class="navbar-brand"href="/signup">Registrate</a>
+                </nav>
+		<br><center><h1>Servidor Dns</h1></center>
+		<div class="card">
+                        <div class="card-body">
+                                DNS siglas en ingles de 'domain name sistem' traducido al español 'sistema de nombres de dominio'
+				es el encargado de traducir las direcciones ip en dominios que nosotros podamos entender
+				es decir que su funcion es por ejemplo traducir una direccion 172.217.172.14 y traducirla a 
+				google.com esto con el proposito de que se nnos quede mas gravado pues los humanos siempre
+				hemos sido mejores gravandonos nletras que numeros cuando tu escribes en tu navegador por 
+				ejemplo google.com lo traduce a esta direccion ip porruqe en internet todo funciona por medio
+				de numeros entonses tu le das el dominio al dns el dns la ttraduce a la direccion ip de la da a tu 
+				navegador para  que este busque la pagina y te la entrege ati en el tiempo en el que el servidor
+				dns traduce ese dominio a su correspondiente ip es la carga que tu ves que tiene una pagina
+				por eso es aconcejable que cambies el servidor dns de tu router o de tu pc para que estas sean mas 
+				rapido pero eso lo haremos mas adelante
+
+                        </div>
+                </div>
+		<img src="/img/dns.png"></img>
+		 <div class="card">
+                        <div class="card-body">
+				Como podemos ver en el grafico tu le pides un dominio al dns te devuelve la ip esa ip se le manda
+				al navegador por el metodo https y el navegador nos devuelve la pagna ahora les voya enseñar como 
+				se cambia el servidor dns en linux esto para que tu conexion sea un poco mas rapida
+				o un poco mas lenta si quieres gastar una broma
+				<p class="card-text">1. abrimos la terminal </p>
+				<p class="card-text">2. abrimos el archivo vim /etc/resolv.conf</p>
+				<p class="card-text">3. escribimos nameserver y los dnsque queremos </p>
+				<p class="card-text">4. ejemplo: nameserver 8.8.8.8 nameserver 8.8.4. nameserver 8.8.4.4
+			</div>
+		 </div>
+	</body>
+</html>

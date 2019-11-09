@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+        <head>
+                <meta charset="utf-8">
+                <meta name="author"content="walter">
+                <title>WalterBlogs</title>
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        </head>
+        <body>
+                <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand"href="/">Inicio</a>
+                        <a class="navbar-brand"href="/signin">Inicia Secion</a>
+                        <a class="navbar-brand"href="/signup">Registrate</a>
+                </nav>
+                <br><center><h1>Firewall</h1></center>
+		<div class="card">
+			<div class="card-body">
+				firewall o cortafuegos es un programa informatica cuya funcion es proteger a un equipo conectado a 
+				una red gestionando la salida y la entrada de paquetes y te estaras preguntando como sabe cuales
+				paquetes pueden entrar y cuales paquetes pueden salir simple por un conjunto de regalas que se le
+				introducen en su configuracion en linux desde la version del kernel 2.4 se incluyen iptables 
+				un programa para gestionar el firewall y aplicarle estas reglas 
+			</div>
+		</div>
+		 <img class="mx-auto"src="/img/firewall.png"></img>
+		   <div class="card">
+                        <div class="card-body">
+				Como Podemos ver en la imagen lo que hace el firewall es bloquear un paquete que cumpla 
+				com las regls establecidas ya que este paquete puede ser malicioso o simplemente el administrador
+				de la red no quiere que siertos paquetes entren a la red ahora les mostrare un ejemplo de como
+				se configura esto en linux con iptables
+				<br><br>
+				<p class="card-text">lo primero que hacemos es iniciar los iptables </p>
+				<p class="card-text">sudo service iptables start</p>
+				<p class="card-text">Para ver las reglas existentes</p>
+				<p class="card-text">sudo iptables -L -n -v</p>
+				<p class="card-text">Para que no entre ningun paquete</p>
+				<p class="card-text">iptables -P INPUT DROP</p>
+				<p class="card-text">Para que no salga ningun paquete</p>
+				<p class="card-text">iptables -P OUTPUT DROP</p>
+				<p class="card-text">para que se bloqueen los paquetes</p>
+				<p class="card-text">iptables -P FORWARD DROP</p>
+				con esto nos habremos quedado sin internet porque estamos bloqueando los paquetes de entrada y de 
+				salida para que nos vuelva tenemos que acer lo mismo pero en ves de DROP uusamos ACCEPT
+				<p class="card-text">Para bloquear el tráfico procedente de una determinada IP, debemos ejecutar:
+    				iptables -A INPUT -p tcp -m iprange –src-range 192.168.1.13-192.168.2.19 (ejemplo de IP)
+				<p class="card-text">Bloquear y prevenir ataques DDoS
+   				 iptables -A INPUT -p tcp –dport 80 -m limit –limit 25/minute –limit-burst 100 -j ACCEPT
+
+
+			</div>
+		   </div>
+		<br><h2>Comentario</h2>
+		 <div class="card" style="width: 22rem;">
+                        <div class="card-body">
+                                <form action="/comentary"method="POST">
+                                        <label>Email</label>
+                                        <input type="email"name="email"class="form-control"placeholder="Introdusca Su Correo">
+					<label>Comentario</label>
+					<textarea class="form-control"name="comentary"placeholder="Ingrese Su Comentario"></textarea>
+                                        <button class="btn btn-primary btn-block">Comentar</button>
+                                </form>
+                        </div>
+                </div>
+		<br>
+		<br><h4>Comentarios</h4>
+		<% comentarys.forEach(function (comentary) { %>
+		   <div class="card" style="width: 35rem;">
+                        <div class="card-body">
+				<label>Correo: </label>
+				<p><%= comentary.email  %></p>
+				<label>Comentario: </label>
+				<p><%= comentary.comentary  %></p>
+				<a class="btn <%= comentary.status ? 'btn-dark':'btn-success'%>"href="/gusta/<%=comentary._id%>">Me Gusta</a>
+			</div>
+		   </div>
+		<% }) %>
+	</body>
+</html>
